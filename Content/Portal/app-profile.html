@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>AutoInsurancePortal</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link href="plugins/common/common.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f5f7;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .profile-card img {
+            border-radius: 50%;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-card h3 {
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        .profile-card p {
+            color: #555;
+        }
+
+        .change-pic-container label {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+            .change-pic-container label:hover {
+                background-color: #0056b3;
+            }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            gap: 10px;
+        }
+
+            .social-links a {
+                display: inline-block;
+                color: white;
+                background-color: #007bff;
+                padding: 10px;
+                border-radius: 50%;
+                font-size: 1rem;
+                text-align: center;
+                width: 40px;
+                height: 40px;
+                transition: background-color 0.3s ease;
+            }
+
+                .social-links a:hover {
+                    background-color: #0056b3;
+                }
+
+            .social-links i {
+                line-height: 1.5;
+            }
+
+        .action-buttons {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+            .action-buttons button {
+                background-color: #28a745;
+                color: white;
+                border: none;
+                padding: 5px 10px;
+                border-radius: 5px;
+                font-size: 0.8rem;
+                margin-left: 5px;
+                cursor: pointer;
+            }
+
+                .action-buttons button:hover {
+                    background-color: #1e7e34;
+                }
+
+        .hidden {
+            display: none;
+        }
+
+        .editable {
+            border: 1px dashed #ccc;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: text;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div id="main-wrapper">
+
+        <!--**********************************
+        Nav header start
+    ***********************************-->
+        <div class="nav-header">
+            <div class="brand-logo">
+                <a href="index.html">
+                    <b class="logo-abbr"><img src="images/logo.png" alt=""> </b>
+                    <span class="logo-compact"><img src="./images/logo-compact.png" alt=""></span>
+                    <span class="brand-title">
+                        <img src="images/logo-text.png" alt="">
+                    </span>
+                </a>
+            </div>
+        </div>
+        <!--**********************************
+        Nav header end
+    ***********************************-->
+        <!-- Sidebar -->
+        <div class="nk-sidebar">
+            <div class="nk-nav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li class="nav-label">Dashboard</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-speedometer menu-icon"></i><span class="nav-text">Dashboard</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="./index.html">Home 1</a></li>
+                            <!-- <li><a href="./index-2.html">Home 2</a></li> -->
+                        </ul>
+                    </li>
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-globe-alt menu-icon"></i><span class="nav-text">Layouts</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="./layout-blank.html">Blank</a></li>
+                            <li><a href="./layout-one-column.html">One Column</a></li>
+                            <li><a href="./layout-two-column.html">Two column</a></li>
+                            <li><a href="./layout-compact-nav.html">Compact Nav</a></li>
+                            <li><a href="./layout-vertical.html">Vertical</a></li>
+                            <li><a href="./layout-horizontal.html">Horizontal</a></li>
+                            <li><a href="./layout-boxed.html">Boxed</a></li>
+                            <li><a href="./layout-wide.html">Wide</a></li>
+
+
+                            <li><a href="./layout-fixed-header.html">Fixed Header</a></li>
+                            <li><a href="layout-fixed-sidebar.html">Fixed Sidebar</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-label">Apps</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-envelope menu-icon"></i> <span class="nav-text">Email</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="./email-inbox.html">Inbox</a></li>
+                            <li><a href="./email-read.html">Read</a></li>
+                            <li><a href="./email-compose.html">Compose</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-screen-tablet menu-icon"></i><span class="nav-text">Apps</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="./app-profile.html">Profile</a></li>
+                            <li><a href="./app-calender.html">Calender</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-graph menu-icon"></i> <span class="nav-text">Charts</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="./chart-flot.html">Flot</a></li>
+                            <li><a href="./chart-morris.html">Morris</a></li>
+                            <li><a href="./chart-chartjs.html">Chartjs</a></li>
+                            <li><a href="./chart-chartist.html">Chartist</a></li>
+                            <li><a href="./chart-sparkline.html">Sparkline</a></li>
+                            <li><a href="./chart-peity.html">Peity</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-label">UI Components</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-grid menu-icon"></i><span class="nav-text">UI Components</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="./ui-accordion.html">Accordion</a></li>
+                            <li><a href="./ui-alert.html">Alert</a></li>
+                            <li><a href="./ui-badge.html">Badge</a></li>
+                            <li><a href="./ui-button.html">Button</a></li>
+                            <li><a href="./ui-button-group.html">Button Group</a></li>
+                            <li><a href="./ui-cards.html">Cards</a></li>
+                            <li><a href="./ui-carousel.html">Carousel</a></li>
+                            <li><a href="./ui-dropdown.html">Dropdown</a></li>
+                            <li><a href="./ui-list-group.html">List Group</a></li>
+                            <li><a href="./ui-media-object.html">Media Object</a></li>
+                            <li><a href="./ui-modal.html">Modal</a></li>
+                            <li><a href="./ui-pagination.html">Pagination</a></li>
+                            <li><a href="./ui-popover.html">Popover</a></li>
+                            <li><a href="./ui-progressbar.html">Progressbar</a></li>
+                            <li><a href="./ui-tab.html">Tab</a></li>
+                            <li><a href="./ui-typography.html">Typography</a></li>
+                            <!-- </ul>
+                        </li>
+                        <li>
+                            <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                                <i class="icon-layers menu-icon"></i><span class="nav-text">Components</span>
+                            </a>
+                            <ul aria-expanded="false"> -->
+                            <li><a href="./uc-nestedable.html">Nestedable</a></li>
+                            <li><a href="./uc-noui-slider.html">Noui Slider</a></li>
+                            <li><a href="./uc-sweetalert.html">Sweet Alert</a></li>
+                            <li><a href="./uc-toastr.html">Toastr</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="widgets.html" aria-expanded="false">
+                            <i class="icon-badge menu-icon"></i><span class="nav-text">Widget</span>
+                        </a>
+                    </li>
+                    <li class="nav-label">Forms</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-note menu-icon"></i><span class="nav-text">Forms</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="./form-basic.html">Basic Form</a></li>
+                            <li><a href="./form-validation.html">Form Validation</a></li>
+                            <li><a href="./form-step.html">Step Form</a></li>
+                            <li><a href="./form-editor.html">Editor</a></li>
+                            <li><a href="./form-picker.html">Picker</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-label">Table</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-menu menu-icon"></i><span class="nav-text">Table</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="./table-basic.html" aria-expanded="false">Basic Table</a></li>
+                            <li><a href="./table-datatable.html" aria-expanded="false">Data Table</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-label">Pages</li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-notebook menu-icon"></i><span class="nav-text">Pages</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="./page-login.html">Login</a></li>
+                            <li><a href="./page-register.html">Register</a></li>
+                            <li><a href="./page-lock.html">Lock Screen</a></li>
+                            <li>
+                                <a class="has-arrow" href="javascript:void()" aria-expanded="false">Error</a>
+                                <ul aria-expanded="false">
+                                    <li><a href="./page-error-404.html">Error 404</a></li>
+                                    <li><a href="./page-error-403.html">Error 403</a></li>
+                                    <li><a href="./page-error-400.html">Error 400</a></li>
+                                    <li><a href="./page-error-500.html">Error 500</a></li>
+                                    <li><a href="./page-error-503.html">Error 503</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content clearfix">
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="toggle-icon"><i class="icon-menu"></i></span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <ul class="clearfix">
+                        <li class="icons dropdown">
+                            <div class="user-img c-pointer position-relative" data-toggle="dropdown">
+                                <span class="activity active"></span>
+                                <img src="images/user/1.png" height="40" width="40" alt="">
+                            </div>
+                            <div class="drop-down dropdown-profile dropdown-menu">
+                                <div class="dropdown-content-body">
+                                    <ul>
+                                        <li>
+                                            <a href="app-profile.html"><i class="icon-user"></i> <span>Profile</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="email-inbox.html">
+                                                <i class="icon-envelope-open"></i> <span>Inbox</span>
+                                                <div class="badge gradient-3 badge-pill badge-primary">3</div>
+                                            </a>
+                                        </li>
+                                        <hr class="my-2">
+                                        <li>
+                                            <a href="page-lock.html"><i class="icon-lock"></i> <span>Lock Screen</span></a>
+                                        </li>
+                                        <li><a href="page-login.html"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Content Body -->
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- Profile Card -->
+                    <div class="col-lg-4">
+                        <div class="card profile-card text-center">
+                            <!-- Dynamic Profile Picture -->
+                            <img id="profilePic" src="@ViewBag.ProfilePicture" width="100" height="100" alt="Profile Picture">
+
+                            <!-- Dynamic Username -->
+                            <h3>@(ViewBag.Username ?? "Default Username")</h3>
+                            
+                            <!-- Dynamic Location -->
+                            <p>@(ViewBag.Location ?? "Default Location")</p> <!-- Assuming Location is a property stored in your database -->
+                            <!-- Profile Picture Upload -->
+                            <div class="change-pic-container">
+                                <label for="fileInput" class="btn btn-primary">Choose File</label>
+                                <input type="file" id="fileInput" accept="image/*" onchange="previewImage(event)" style="display: none;">
+                            </div>
+
+                            <!-- Social Media Links -->
+                            <div class="social-links">
+                                <a href="https://www.facebook.com" target="_blank"><i class="icon-social-facebook"></i></a>
+                                <a href="https://www.github.com" target="_blank"><i class="icon-social-github"></i></a>
+                                <a href="https://www.instagram.com" target="_blank"><i class="icon-social-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- About Me Card -->
+                    <div class="col-lg-8">
+                        <div class="card about-card">
+                            <h3>About Me</h3>
+                            <p id="aboutText" class="editable" contenteditable="false">Hi, I'm Pikamy, a standard dummy text since the 1500s.</p>
+                            <div class="action-buttons">
+                                <button id="aboutEditButton" onclick="editContent('aboutText', 'aboutSaveButton')">Edit</button>
+                                <button id="aboutSaveButton" class="hidden" onclick="saveContent('aboutText', 'aboutSaveButton')">Save</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information Card -->
+                    <div class="col-lg-12">
+                        <div class="card contact-card">
+                            <h3>Contact Information</h3>
+                            <div id="contactInfo" class="editable" contenteditable="false">
+                                <ul>
+                                    <li><strong>Mobile:</strong> +1 234 567 890</li>
+                                    <li><strong>Email:</strong> name@domain.com</li>
+                                    <li><strong>Address:</strong> 123 Maple Street, Canada</li>
+                                </ul>
+                            </div>
+                            <div class="action-buttons">
+                                <button id="contactEditButton" onclick="editContent('contactInfo', 'contactSaveButton')">Edit</button>
+                                <button id="contactSaveButton" class="hidden" onclick="saveContent('contactInfo', 'contactSaveButton')">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>&copy; Designed & Developed by Quixlab | <a href="#">Privacy Policy</a></p>
+        </div>
+    </div>
+
+    <script src="plugins/common/common.min.js"></script>
+    <script src="js/custom.min.js"></script>
+    <script src="js/settings.js"></script>
+    <script src="js/gleek.js"></script>
+    <script src="js/styleSwitcher.js"></script>
+    <script>
+        function uploadProfilePicture() {
+            const fileInput = document.getElementById("fileInput");
+
+            // Check if a file is selected
+            if (!fileInput.files || fileInput.files.length === 0) {
+                alert("Please select a file to upload.");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append("profilePicture", fileInput.files[0]);
+
+            // Send the file to the server
+            fetch("/Profile/UploadProfilePicture", { // Ensure this endpoint matches your server-side logic
+                method: "POST",
+                body: formData,
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Update the profile picture preview with the new URL
+                        document.getElementById("profilePic").src = data.profilePictureUrl;
+                        alert("Profile picture updated successfully!");
+                    } else {
+                        alert(data.message || "Failed to upload profile picture.");
+                    }
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                    alert("An error occurred while uploading the profile picture.");
+                });
+        }
+    </script>
+
+    <script>
+        function editContactInfo() {
+            document.getElementById("contactInfo").contentEditable = "true";
+            document.getElementById("contactEditButton").classList.add("hidden");
+            document.getElementById("contactSaveButton").classList.remove("hidden");
+        }
+
+        function saveContactInfo() {
+            const mobile = document.getElementById("mobileText").textContent.trim();
+            const email = document.getElementById("emailText").textContent.trim();
+            const address = document.getElementById("addressText").textContent.trim();
+
+            fetch('/Profile/UpdateContactInfo', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ mobile, email, address }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Contact information updated successfully!');
+                        document.getElementById("contactInfo").contentEditable = "false";
+                        document.getElementById("contactEditButton").classList.remove("hidden");
+                        document.getElementById("contactSaveButton").classList.add("hidden");
+                    } else {
+                        alert(data.message || 'Failed to update contact information.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while updating contact information.');
+                });
+        }
+    </script>
+
+
+</body>
+
+</html>
